@@ -62,7 +62,6 @@ function Options({ optionProps }) {
     try {
       const id = optionProps.transactionDetails.id;
       const userid = localStorage.getItem("userid");
-      console.log(typeof userid, typeof id);
       const response = await axios.delete(
         `http://127.0.0.1:3000/api/transactions/${userid}/transaction/${id}`
       );

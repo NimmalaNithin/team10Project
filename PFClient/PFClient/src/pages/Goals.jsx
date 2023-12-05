@@ -56,7 +56,6 @@ function Goals() {
       `http://127.0.0.1:3000/api/goals/${userid}/incompletedgoals`
     );
     setInCompletedData(response.data);
-    
   };
 
   useEffect(() => {
@@ -103,7 +102,9 @@ function Goals() {
           progress: undefined,
           theme: "colored",
         });
-        //handleTransactionAdded();
+        getProgressGoals();
+        getCompletedGoals();
+        getInCompletedGoals();
         handleClose();
       } catch (error) {
         console.log(error);
@@ -150,7 +151,15 @@ function Goals() {
             <Typography variant="h5">Goals in Progress</Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
               {progressData.map((row) => {
-                return <GoalCards key={row.id} cardProps={{ row: row }} />;
+                return (
+                  <GoalCards
+                    key={row.id}
+                    cardProps={{
+                      row: row,
+                      getProgressGoals: getProgressGoals,
+                    }}
+                  />
+                );
               })}
             </Box>
           </Box>
