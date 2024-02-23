@@ -41,8 +41,8 @@ function LineGraph({ graphData }) {
     labels: graphData.months,
     datasets: [
       {
-        label: "expenditure",
-        data: graphData.totalEIS, //api call
+        label: graphData.type,
+        data: graphData.EIS, //api call
         borderColor: "rgba(255, 255, 255, 0.8)",
         backgroundColor: "rgba(255, 255, 255, 0)",
         borderWidth: 2,
@@ -56,8 +56,9 @@ function LineGraph({ graphData }) {
 
 LineGraph.propTypes = {
   graphData: PropTypes.shape({
+    type: PropTypes.string.isRequired,
     months: PropTypes.array.isRequired,
-    totalEIS: PropTypes.array.isRequired,
+    EIS: PropTypes.array.isRequired,
   }).isRequired,
 };
 

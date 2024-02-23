@@ -1,5 +1,5 @@
 const getRecentTransactionsByUserId =
-  "SELECT id, TO_CHAR(datetime, 'YYYY-MM-DD HH:MI:SS') AS datetime ,description,type,amount FROM transactions WHERE userid=$1 ORDER BY datetime DESC LIMIT 10;";
+  "SELECT id, TO_CHAR(datetime, 'YYYY-MM-DD HH:MI:SS') AS datetime ,description,type,amount FROM transactions WHERE EXTRACT(YEAR FROM datetime) = EXTRACT(YEAR FROM CURRENT_TIMESTAMP) And userid=$1 ORDER BY datetime DESC LIMIT 10;";
 
 const getAllTransactionsByUserId =
   "SELECT id, TO_CHAR(datetime, 'YYYY-MM-DD HH:MI:SS') AS datetime ,description,type,amount FROM transactions WHERE userid=$1 ORDER BY datetime DESC;";

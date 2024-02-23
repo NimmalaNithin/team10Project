@@ -91,21 +91,24 @@ function Home() {
     heading: "Income",
     bgColor: "green",
     amount: parseFloat(currentMonthIncome), // amt from api call
-    monthlyEIS: monthlyIncomes, //api call
+    months: monthlyIncomes.months,
+    monthlyEIS: monthlyIncomes.totalEIS, //api call
     icon: <StyledArrowCircleUpIcon />,
   };
   const expenseProp = {
     heading: "Expense",
     bgColor: "red",
     amount: parseFloat(currentMonthExpense), // amt from api call
-    monthlyEIS: monthlyExpenses, //api call
+    months: monthlyExpenses.months,
+    monthlyEIS: monthlyExpenses.totalEIS, //api call
     icon: <StyledArrowCircleDownIcon />,
   };
   const savingProp = {
     heading: "Savings",
     bgColor: "grey",
     amount: parseFloat(currentMonthSavings), // amt from api call
-    monthlyEIS: monthlySavings, //api call
+    months: monthlySavings.months,
+    monthlyEIS: monthlySavings.totalEIS, //api call
     icon: <StyledSavingsIcon />,
   };
   return (

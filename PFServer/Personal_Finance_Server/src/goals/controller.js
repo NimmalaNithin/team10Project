@@ -22,7 +22,7 @@ const addGoal = async (req, res) => {
     if (!totalpercentage) {
       totalpercentage = 0;
     }
-    if (parseInt(totalpercentage) + parseInt(percentageOfSavings) < 100) {
+    if (parseInt(totalpercentage) + parseInt(percentageOfSavings) <= 100) {
       results = await pool.query(queries.addGoal, [
         userid,
         title,

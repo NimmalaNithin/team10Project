@@ -185,7 +185,7 @@ function Goals() {
           <>
             <Divider sx={{ my: 3 }} />
             <Box>
-              <Typography variant="h5">Goals Completed</Typography>
+              <Typography variant="h5">Goals Incomplete</Typography>
               <Box sx={{ display: "flex", flexWrap: "wrap" }}>
                 {inCompletedData.map((row) => {
                   return <GoalCards key={row.id} cardProps={{ row: row }} />;

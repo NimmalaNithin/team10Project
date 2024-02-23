@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 import LineGraph from "./LineGraph";
 
 function BannerCard({ bannerProps }) {
+  const lineProps = {
+    type: bannerProps.heading,
+    months: bannerProps.months,
+    EIS: bannerProps.monthlyEIS,
+  };
   const card = (
     <CardContent
       sx={{
@@ -36,7 +41,7 @@ function BannerCard({ bannerProps }) {
         </Box>
       </Box>
       <Box>
-        <LineGraph graphData={bannerProps.monthlyEIS} />
+        <LineGraph graphData={lineProps} />
       </Box>
     </CardContent>
   );
@@ -55,7 +60,8 @@ BannerCard.propTypes = {
     heading: PropTypes.string.isRequired,
     bgColor: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
-    monthlyEIS: PropTypes.object.isRequired,
+    months: PropTypes.array.isRequired,
+    monthlyEIS: PropTypes.array.isRequired,
     icon: PropTypes.element.isRequired,
   }).isRequired,
 };
